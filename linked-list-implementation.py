@@ -21,26 +21,33 @@ class LinkedList:
   def get_head_node(self):
     return self.head_node
   
-# Add your insert_beginning and stringify_list methods below:
   def insert_beginning(self, new_value):
     new_node = Node(new_value)
-    #Inside the method, instantiate a Node with new_value. Name this new_node.
-    self.new_node = Node(new_value)
-    #Now, link new_node to the existing head_node.
     new_node.set_next_node(self.head_node)
-    #Finally, replace the current head_node with new_node.
     self.head_node = new_node
+    
   def stringify_list(self):
     string_list = ""
     current_node = self.get_head_node()
     while current_node:
       if current_node.get_value() != None:
         string_list += str(current_node.get_value()) + "\n"
-        current_node = current_node.get_next_node()
+      current_node = current_node.get_next_node()
     return string_list
-    
   
-
+  # Define your remove_node method below:
+  def remove_node(self, value_to_remove):
+    current_node = self.get_head_node()
+    if current_node.get_value() == value_to_remove:
+      self.head_node = current_node.get_next_node()
+    else:
+      while current_node:
+        next_node = current_node.get_next_node()
+        if next_node.get_value() == value_to_remove:
+            current_node.set_next_node(next_node.get_next_node())
+            current_node = None
+        else:
+            current_node = next_node
 # Test your code by uncommenting the statements below - did your list print to the terminal?
 ll = LinkedList(5)
 ll.insert_beginning(70)
