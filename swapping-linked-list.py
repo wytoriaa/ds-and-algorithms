@@ -34,6 +34,8 @@ def swap_nodes(input_list, val1, val2):
     node1.set_next_node(node2.get_next_node())
     node2.set_next_node(temp)
 
+#Time Complexity = O(n) if both while loops must iterate all the way through to the end
+#and new variables O(1).
 
 ll = LinkedList.LinkedList()
 for i in range(10):
